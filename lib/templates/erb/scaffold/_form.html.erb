@@ -1,0 +1,6 @@
+<%%= bootstrap_form_for(@<%= singular_table_name %>) do |f| %>
+  <% attributes.each do |attribute| -%>
+    <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %> %>
+  <% end -%>
+    <%%= f.submit "Submit", class: "btn btn-primary" %>
+<%% end %>

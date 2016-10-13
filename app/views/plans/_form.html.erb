@@ -1,0 +1,9 @@
+<%= bootstrap_form_for(@plan) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.number_field :price %>
+  <%= f.check_box :recurring %>
+  <%= f.text_field :period %>
+  <%= f.number_field :cycles %>
+  <%= f.number_field :num_doc %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

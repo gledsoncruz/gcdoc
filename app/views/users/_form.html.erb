@@ -1,0 +1,11 @@
+<%= bootstrap_form_for(@user) do |f| %>
+  <%= f.text_field :full_name %>
+  <%= f.email_field :email %>
+  <%= f.telephone_field :cel %>
+  <%= f.text_field :cpf %>
+  <%= f.password_field :password, autocomplete: "off" %>
+  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <%= f.check_box :pass_changed, label: "Forçar alteração de senha no próximo login" %>
+  <%= f.check_box :active, label: "Usuário ativo?" %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

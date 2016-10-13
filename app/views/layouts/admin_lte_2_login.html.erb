@@ -1,0 +1,30 @@
+
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/"><b>GC</b>Docs</a>
+  </div><!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg"><%= devise_error_messages! %></p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group has-feedback">
+        <%= f.text_field :email, class: 'form-control', autofocus: true %>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.password_field :password, class: 'form-control', autocomplete: 'off' %>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <%= render "devise/shared/links" %>
+        </div><!-- /.col -->
+        <div class="col-xs-4">
+          <%= f.submit 'Log in', class: 'btn btn-primary btn-block btn-flat' %>
+
+        </div><!-- /.col -->
+      </div>
+
+    <% end %>
+  </div><!-- /.login-box-body -->
+</div><!-- /.login-box -->

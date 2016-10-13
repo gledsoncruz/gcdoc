@@ -1,0 +1,7 @@
+<%= bootstrap_form_for(@document, html: { multipart: true }) do |f| %>
+      <%= f.text_field :title %>
+      <%= f.text_area :description %>
+      <%= f.file_field :file_document %>
+      <%= f.hidden_field :file_document_cache %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

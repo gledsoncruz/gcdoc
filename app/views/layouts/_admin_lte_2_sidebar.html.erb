@@ -1,0 +1,54 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <%= image_tag current_user.avatar.url, class: "img-circle" %>
+      </div>
+      <div class="pull-left info">
+        <p><%= current_user.full_name %></p>
+        <!-- Status -->
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+
+    <!-- search form (Optional) -->
+    <!--form action="#" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search..."/>
+        <span class="input-group-btn">
+          <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+        </span>
+      </div>
+    </form-->
+    <!-- /.search form -->
+
+    <!-- Sidebar Menu -->
+    <ul class="sidebar-menu">
+      <li class="header">Menu</li>
+      <li class="active"><%= link_menu('Dashboard', dashboard_index_path, 'fa fa-tachometer') %></li>
+      <% if policy(:user).index? %>
+        <li><%= link_menu('Meus Clientes', users_path, 'fa fa-users') %></li>
+      <% end %>
+      <% if policy(:plan).index? %>
+        <li><%= link_menu('Planos', plans_path, 'fa fa-money') %></li>
+      <% end %>
+      <li><%= link_menu('Meus Documentos', documents_path, 'fa fa-book') %></li>
+
+
+      <li class="treeview">
+        <a href="#"><i class='fa fa-user'></i> <span>Perfil</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="#">Meus dados</a></li>
+          <li><a href="#">Meu Plano</a></li>
+        </ul>
+      </li>
+      <li><%= link_menu('Logout', destroy_user_session_path, 'fa fa-sign-out', :method => :delete) %></li>
+    </ul><!-- /.sidebar-menu -->
+  </section>
+  <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,27 @@
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">Detalhes</h3>
+  </div>
+  <div class="box-body">
+  <div class="row">
+  	<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+  		<%= image_tag(@document.file_document.thumb.url, style: 'padding:1px;border:thin solid black;') %>
+  	</div>
+  	<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+  		<h1><%= @document.title %></h1>
+  		<%= @document.description %>
+  	</div>
+  </div>
+
+
+
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>
+
+
+  </div>
+</div>
+
+
+

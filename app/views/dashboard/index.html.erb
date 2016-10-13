@@ -1,0 +1,53 @@
+
+<div class="row">
+	<% if current_user.role.eql?('admin') %>
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<div class="info-box bg-red">
+			  <span class="info-box-icon"><i class="fa fa-money"></i></span>
+			  <div class="info-box-content">
+			    <span class="info-box-text"><%= current_user.full_name %></span>
+			    <span class="info-box-number"><%= current_user.plan.name %></span>
+			    <span class="progress-description">
+			      Esse Plano contempla um total de <%= current_user.count_admin_clients_per_plan %> clientes e 70 documentos.
+			    </span>
+			  </div><!-- /.info-box-content -->
+			</div><!-- /.info-box -->
+		</div>
+
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<!-- Apply any bg-* class to to the info-box to color it -->
+			<div class="info-box bg-green">
+			  <span class="info-box-icon"><i class="fa fa-users"></i></span>
+			  <div class="info-box-content">
+			    <span class="info-box-text">Clientes</span>
+			    <span class="info-box-number"><%= current_user.count_admin_clients %></span>
+			    <!-- The progress section is optional -->
+			    <div class="progress">
+			      <div class="progress-bar" style="width: <%= current_user.percent_admin_clients %>%"></div>
+			    </div>
+			    <span class="progress-description">
+			      <%= current_user.percent_admin_clients %>% de um total de <%= current_user.count_admin_clients_per_plan %>.
+			    </span>
+			  </div><!-- /.info-box-content -->
+			</div><!-- /.info-box -->
+		</div>
+
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<div class="info-box bg-yellow">
+			  <span class="info-box-icon"><i class="fa fa-book"></i></span>
+			  <div class="info-box-content">
+			    <span class="info-box-text">Documentos</span>
+			    <span class="info-box-number"><%= current_user.count_documents_per_admin %></span>
+			    <!-- The progress section is optional -->
+			    <div class="progress">
+			      <div class="progress-bar" style="width: 70%"></div>
+			    </div>
+			    <span class="progress-description">
+			      <%= current_user.percent_admin_clients %>
+			    </span>
+			  </div><!-- /.info-box-content -->
+			</div><!-- /.info-box -->
+		</div>
+	<% end %>
+
+</div>
