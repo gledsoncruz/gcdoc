@@ -5,7 +5,7 @@
   <div class="box-body">
   <div class="row">
   	<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-  		<%= image_tag(@document.file_document.thumb.url, style: 'padding:1px;border:thin solid black;') %>
+  		<%= image_tag(@document.file_document.thumb.url, style: 'padding:1px;border:thin solid black;', class: 'img-responsive') %>
   	</div>
   	<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
   		<h1><%= @document.title %></h1>

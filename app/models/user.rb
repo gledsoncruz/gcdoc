@@ -42,8 +42,12 @@ class User < ActiveRecord::Base
   def percent_admin_clients
     tot_clients = count_admin_clients
     tot_clients_per_plan = self.plan.num_client
-    percent = (tot_clients * 100) / tot_clients_per_plan
-    return percent
+    if tot_clients_per_plan > 0
+      percent = (tot_clients * 100) / tot_clients_per_plan
+      return percent
+    else
+      return 0
+    end
   end
 
 
