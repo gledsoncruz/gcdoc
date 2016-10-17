@@ -4,6 +4,8 @@
   <%= f.telephone_field :cel %>
   <%= f.text_field :cpf %>
   <%= f.password_field :password, autocomplete: "off" %>
+  <%= f.select :role, :collection => User::ROLES %>
+  <%= f.select :plan_id, options_for_select(Plan.all.map{|p|[p.name, p.id]}) %>
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
   <%= f.check_box :pass_changed, label: "Forçar alteração de senha no próximo login" %>
   <%= f.check_box :active, label: "Usuário ativo?" %>

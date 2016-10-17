@@ -8,7 +8,7 @@ class DocumentsController < ApplicationController
     @title = 'Lista de Documentos'
     @q = Document.ransack(params[:q])
     if current_user.role.eql?('super')
-      @search = Document.where(role: 'admin').search(params[:q])
+      @search = Document.all.search(params[:q])
       @documents = @search.result
     elsif current_user.role.eql?('admin')
       @search = Document.where(user_id: current_user.id).search(params[:q])

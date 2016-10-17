@@ -1,29 +1,24 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">Registrar</h3>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="box-body">
+    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.select :plan_id, options_for_select(Plan.all.map{|p|[p.name << '  ------  ' << number_to_currency(p.price, unit: "R$", separator: ",", delimiter: " ")<<' (mensais)', p.id]}), label: 'Escolha um plano' %>
+    <%= f.text_field :full_name, autofocus: true, label: 'Nome completo' %>
+    <%= f.email_field :email %>
+    <%= f.password_field :password, autocomplete: "off", label: 'Senha' %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", label: 'Confirmar Senha' %>
+    <%= f.hidden_field :role, value: 'admin' %>
+    <%= f.submit "Registrar", class: "btn btn-primary" %>
+  <% end %>
+  </br>
+  <%= render "devise/shared/links" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
+
