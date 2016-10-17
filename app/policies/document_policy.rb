@@ -1,0 +1,29 @@
+class DocumentPolicy < ApplicationPolicy
+  def index?
+    user.role.eql?('super') || user.role.eql?('admin')
+  end
+
+  def show?
+    index?
+  end
+
+  def create?
+    index?
+  end
+
+  def new?
+    index?
+  end
+
+  def update?
+    index?
+  end
+
+  def edit?
+    index?
+  end
+
+  def destroy?
+    index?
+  end
+end

@@ -5,6 +5,7 @@ class DocumentsController < ApplicationController
   # GET /documents.json
   def index
     #@documents = Document.all
+    authorize Document
     @title = 'Lista de Documentos'
     @q = Document.ransack(params[:q])
     if current_user.role.eql?('super')

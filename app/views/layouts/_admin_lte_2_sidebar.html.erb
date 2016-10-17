@@ -30,14 +30,16 @@
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
       <li class="header">Menu</li>
-      <li class="active"><%= link_menu('Dashboard', dashboard_index_path, 'fa fa-tachometer') %></li>
       <% if policy(:user).index? %>
+      <li class="active"><%= link_menu('Dashboard', dashboard_index_path, 'fa fa-tachometer') %></li>
         <li><%= link_menu('Meus Clientes', users_path, 'fa fa-users') %></li>
       <% end %>
       <% if policy(:plan).index? %>
         <li><%= link_menu('Planos', plans_path, 'fa fa-money') %></li>
       <% end %>
-      <li><%= link_menu('Meus Documentos', documents_path, 'fa fa-book') %></li>
+      <% if policy(:document).index? %>
+        <li><%= link_menu('Meus Documentos', documents_path, 'fa fa-book') %></li>
+      <% end %>
 
 
       <li class="treeview">

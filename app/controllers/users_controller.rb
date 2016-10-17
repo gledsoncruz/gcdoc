@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    authorize User
   end
 
   def show
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    authorize User
     if current_user.role == 'admin'
       @user.role = 'customer'
       @user.customer_id = current_user.id

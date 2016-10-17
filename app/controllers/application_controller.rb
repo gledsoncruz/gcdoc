@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:alert] = "Você não está autorizado para acessar esse recurso."
-    redirect_to(request.referrer || dashboard_index_path)
+    redirect_to(request.referrer || current_user)
   end
 
   def check_pass_changed
